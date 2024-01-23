@@ -60,3 +60,19 @@ def get_dept(request):
         'dept':Department.objects.all()
     }
     return render(request,'hostel/dept.html',d_get)
+
+def add_attendance(request):
+    if request.method == 'POST':
+        adm_no = request.POST.get('adm_no')
+        date = request.POST.get('date')
+
+        attendance = Attendance(adm_no=adm_no,date=date)
+        attendance.save()
+        return HttpResponse("<h1 align='center'>Attendance Submitted</h1>")
+    return render(request,"hostel/fatd.html")
+
+def get_attendance(request):
+    a_get = {
+        'attendance':Attendance.objects.all()
+    }
+    return render(request,"hostel/atd.html",a_get)

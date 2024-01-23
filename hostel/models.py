@@ -16,3 +16,7 @@ class Rooms(models.Model):
 class Department(models.Model):
     dept_id = models.IntegerField()
     dept_name = models.CharField(max_length=42)
+
+class Attendance(models.Model):
+    adm_no = models.IntegerField()
+    date = models.DateField()
