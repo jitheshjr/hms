@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+            }
+
+            form {
+                max-width: 400px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 15px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            input[type="submit"] {
+                background-color: #4caf50;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" action="{% url 'add_dept' %}">
+            {% csrf_token %}
+            <label for="did">Department ID: </label>
+            <input type="number" name="dept_id" id="did">
+            <label for="name">Department Name: </label>
+            <input type="text" name="dept_name" id="name">
+            <input type="submit">
+        </form>
+    </body>
+</html>

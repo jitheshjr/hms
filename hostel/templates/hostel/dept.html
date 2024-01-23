@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        table{
+            border-collapse: collapse;
+            border: 2px solid black;
+        }
+        tr,th,td{
+            border-collapse: collapse;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        </style>
+
+</head>
+<body>
+    <h1>Department Information</h1>
+    <center>
+    <table>
+        <tr>
+            <th>Department ID</th>
+            <th>Department Name</th>
+        </tr>
+        {%for i in dept%}
+            <tr>
+                <td>{{i.dept_id}}</td>
+                <td>{{i.dept_name}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </center>
+</body>
+</html>
