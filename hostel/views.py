@@ -63,11 +63,12 @@ def get_dept(request):
 
 def add_attendance(request):
     if request.method == 'POST':
-        adm_no = request.POST.get('adm_no')
+        adm_nos = request.POST.getlist('adm_no')
         date = request.POST.get('date')
 
-        attendance = Attendance(adm_no=adm_no,date=date)
-        attendance.save()
+        for adm_no in adm_nos:
+            attendance = Attendance(adm_no=adm_no,date=date)
+            attendance.save()
         return HttpResponse("<h1 align='center'>Attendance Submitted</h1>")
     return render(request,"hostel/fatd.html")
 
